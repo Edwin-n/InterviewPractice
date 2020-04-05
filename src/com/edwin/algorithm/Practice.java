@@ -1,0 +1,37 @@
+package com.edwin.algorithm;
+
+public class Practice {
+	
+	public String replaceSpace(StringBuffer str) {
+	    int P1 = str.length() - 1;
+	    for (int i = 0; i <= P1; i++)
+	        if (str.charAt(i) == ' ')
+	            str.append("  ");
+
+	    int P2 = str.length() - 1;
+	    while (P1 >= 0 && P2 > P1) {
+	        char c = str.charAt(P1--);
+	        if (c == ' ') {
+	            str.setCharAt(P2--, '0');
+	            str.setCharAt(P2--, '2');
+	            str.setCharAt(P2--, '%');
+	        } else {
+	            str.setCharAt(P2--, c);
+	        }
+	    }
+	    return str.toString();
+	}
+	
+	public static void main(String[] args) {
+		
+		Practice practice = new Practice();
+		StringBuffer str = new StringBuffer();
+		str.append("A  B");
+		System.out.println(practice.replaceSpace(str));
+		
+		
+		
+	}
+
+
+}
